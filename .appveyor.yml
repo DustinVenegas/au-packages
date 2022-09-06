@@ -10,6 +10,7 @@ branches:
 #build:
 #  verbosity: minimal
 
+#https://ci.appveyor.com/tools/encrypt
 environment:
   # Set au version to use or omit to use the latest. Specify branch name to use development version from Github
   au_version:
@@ -20,15 +21,16 @@ environment:
   # Github token to commit pushed packages to repository
   github_user_repo: DustinVenegas/au-packages
   github_api_key:
-    secure: YOUR_GITHUB_API_KEY_HERE_ENCRYPTED_STRING #https://ci.appveyor.com/tools/encrypt
-
+    secure: knrWXGxqFaQoFdoRrhrI4Hs4JdTtfdo1SQ+3/meHs7Ftf3icp4Eikp9WpokSjsa9
 
   # Mail credentials - for error notifications
+  mail_to:
+    secure: yv9JAOXs6VNc6o1X8nmwWuzNDOXUE3Xx+lzUGGG0Prw=
   mail_user:
-    secure: YOUR_EMAIL_ACCOUNT_HERE_ENCRYPTED_STRING #https://ci.appveyor.com/tools/encrypt
+    secure: hoeP21HvcOwYmo8c4cLmCw==
   mail_pass:
-    secure: YOUR_EMAIL_PASSWORD_HERE_ENCRYPTED_STRING #https://ci.appveyor.com/tools/encrypt
-  mail_server: smtp.gmail.com
+    secure:  X7/JeMpROK5OnQndj69x3YDygyX+Bv6DUeEuWrSQLwmwXopzxyNYVsqww2NQfZGFtHnzUiHQKPaPcSThCkCuQprMghZi1woZNw42E/tpIX8=
+  mail_server: smtp.sendgrid.net
   mail_port: 587
   mail_enablessl: true
 
@@ -104,7 +106,7 @@ artifacts:
 
 notifications:
 - provider: Email
-  to: $(mail_user)
+  to: $(mail_to)
   on_build_success: false
   on_build_failure: true
   on_build_status_changed: true
