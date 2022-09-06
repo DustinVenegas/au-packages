@@ -76,9 +76,9 @@ $Options = [ordered]@{
         Path    = "$PSScriptRoot\update_info.xml"           #Path where to save the run info
     }
 
-    Mail = if ($Env:mail_user) {
+    Mail = if ($Env:mail_to) {
             @{
-                To         = $Env:mail_user
+                To         = $Env:mail_to
                 From       = $Env:mail_from
                 Server     = $Env:mail_server
                 UserName   = $Env:mail_user
@@ -87,7 +87,7 @@ $Options = [ordered]@{
                 EnableSsl  = $Env:mail_enablessl -eq 'true'
                 Attachment = "$PSScriptRoot\update_info.xml"
                 UserMessage = ''
-                SendAlways  = $false                        #Send notifications every time
+                SendAlways  = $Env:mail_sendalways -eq 'true'
              }
            } else {}
 

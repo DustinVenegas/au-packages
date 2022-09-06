@@ -25,14 +25,19 @@ environment:
 
   # Mail credentials - for error notifications
   mail_to:
-    secure: yv9JAOXs6VNc6o1X8nmwWuzNDOXUE3Xx+lzUGGG0Prw=
+    secure: ZMdpFNgJQxQa61icq8KK8K7WeALxZpb4o9XMRgYvTQA=
+  mail_from:
+    secure: ZMdpFNgJQxQa61icq8KK8K7WeALxZpb4o9XMRgYvTQA=
+  mail_pass:
+    secure: X7/JeMpROK5OnQndj69x3YDygyX+Bv6DUeEuWrSQLwmwXopzxyNYVsqww2NQfZGFtHnzUiHQKPaPcSThCkCuQprMghZi1woZNw42E/tpIX8=
   mail_user:
     secure: hoeP21HvcOwYmo8c4cLmCw==
-  mail_pass:
-    secure:  X7/JeMpROK5OnQndj69x3YDygyX+Bv6DUeEuWrSQLwmwXopzxyNYVsqww2NQfZGFtHnzUiHQKPaPcSThCkCuQprMghZi1woZNw42E/tpIX8=
   mail_server: smtp.sendgrid.net
   mail_port: 587
   mail_enablessl: true
+
+  # Uncomment to always attempt sending mail. 
+  # mail_sendalways: true
 
   # ID of the gist used to save run results - create a gist under the github_user (secret or not) and grab the id - https://gist.github.com/name/id
   # Optional, leave empty to create anonymous gist
@@ -106,7 +111,7 @@ artifacts:
 
 notifications:
 - provider: Email
-  to: $(mail_to)
+  to: $(mail_tu)
   on_build_success: false
   on_build_failure: true
   on_build_status_changed: true
